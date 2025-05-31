@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Machine Learning Skills & Projects - Adil Chishty</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes matrixRain {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 0% 100%; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes neuralGlow {
+      0% { box-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d; }
+      50% { box-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d; }
+      100% { box-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d; }
+    }
+
+    .ml-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ml-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 255, 157, 0.1) 50%,
+        transparent 100%
+      );
+      animation: matrixRain 10s linear infinite;
+      pointer-events: none;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      color: var(--main-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+
+    .intro-text {
+      color: var(--text-color);
+      font-size: 1.6rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .tools-section, .concepts-section {
+      background: var(--snd-bg-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tools-section::before, .concepts-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(0, 255, 157, 0.1) 50%,
+        transparent 100%
+      );
+      animation: matrixRain 5s linear infinite;
+    }
+
+    .section-title {
+      color: var(--main-color);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .tools-grid, .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .tool-card, .concept-card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .tool-card:hover, .concept-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px var(--main-color);
+    }
+
+    .tool-card h3, .concept-card h3 {
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-card p, .concept-card p {
+      color: var(--text-color);
+      font-size: 1.4rem;
+      line-height: 1.6;
+    }
+
+    .project-section {
+      background: var(--snd-bg-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(0, 255, 157, 0.1) 50%,
+        transparent 100%
+      );
+      animation: matrixRain 5s linear infinite;
+    }
+
+    .project-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px var(--main-color);
+    }
+
+    .project-title {
+      color: var(--main-color);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .tech-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tech-item {
+      color: var(--text-color);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.5rem;
+      border-left: 3px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      transform: translateX(10px);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 1.5rem 3rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      margin-top: 3rem;
+      font-size: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      animation: neuralGlow 2s infinite;
+    }
+
+    .back-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .back-btn:hover::before {
+      left: 100%;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--main-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="ml-container">
+    <h1 class="section-title">🤖 Machine Learning Skills & Projects</h1>
+    <p class="intro-text">
+      I am passionate about Machine Learning (ML) and have been actively working on various ML projects that apply my knowledge of algorithms, data processing, and model evaluation. These projects span diverse domains such as healthcare, security, and creative AI applications, showcasing my ability to build models and systems that have practical real-world utility.
+    </p>
+
+    <div class="tools-section">
+      <h2 class="section-title">📚 Machine Learning & AI Tools</h2>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <h3>Languages</h3>
+          <p>Python, with R for statistical analysis</p>
+        </div>
+        <div class="tool-card">
+          <h3>Libraries/Frameworks</h3>
+          <p>TensorFlow, Keras, scikit-learn, PyTorch, OpenCV, NLTK, spaCy, matplotlib, seaborn</p>
+        </div>
+        <div class="tool-card">
+          <h3>Development Tools</h3>
+          <p>Jupyter Notebooks, Google Colab, Git, GitHub for version control</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="concepts-section">
+      <h2 class="section-title">🔍 Key ML Concepts & Techniques</h2>
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <h3>Supervised Learning</h3>
+          <p>Classification, Regression</p>
+        </div>
+        <div class="concept-card">
+          <h3>Unsupervised Learning</h3>
+          <p>Clustering, Dimensionality Reduction</p>
+        </div>
+        <div class="concept-card">
+          <h3>Deep Learning</h3>
+          <p>CNNs, RNNs, LSTMs, GANs</p>
+        </div>
+        <div class="concept-card">
+          <h3>Model Evaluation</h3>
+          <p>Accuracy, Precision, Recall, F1-Score, Cross-Validation, Confusion Matrix</p>
+        </div>
+        <div class="concept-card">
+          <h3>Data Preprocessing</h3>
+          <p>Cleaning, Scaling, Feature Engineering, One-Hot Encoding</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🍏 Food Allergy Detection Using Images</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Develop a machine learning model to identify potential allergens in food items using image recognition.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">Convolutional Neural Networks (CNNs) for image classification</li>
+        <li class="tech-item">Transfer Learning (using pre-trained models like VGG16, ResNet)</li>
+        <li class="tech-item">Image Augmentation for improved model generalization</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">💬 Chatbot (Natural Language Processing)</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Build an intelligent conversational agent that can handle customer queries and provide automated responses.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">Sequence-to-Sequence Models (Seq2Seq) for conversation flow</li>
+        <li class="tech-item">RNNs and LSTMs for context retention</li>
+        <li class="tech-item">NLTK for tokenization and text preprocessing</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🎵 Music Generation Using LSTM</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Develop an AI system that generates music by learning from existing compositions.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">LSTMs for sequence prediction</li>
+        <li class="tech-item">MIDI file preprocessing</li>
+        <li class="tech-item">Keras/TensorFlow for model training</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🚔 Armed Vehicle Detection</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Detect and classify armed vehicles from satellite images for surveillance and military applications.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">CNNs for object detection</li>
+        <li class="tech-item">YOLO for real-time detection</li>
+        <li class="tech-item">Satellite image preprocessing</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">✅ Fact Checker</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Build an AI-based fact-checking system to verify the credibility of online claims.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">BERT for contextual understanding</li>
+        <li class="tech-item">NLP for text analysis</li>
+        <li class="tech-item">Web scraping for data collection</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🦓 Animal Detection</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        Objective: Create a machine learning model that can detect and classify animals in images.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Techniques Used:</h3>
+      <ul class="tech-list">
+        <li class="tech-item">CNNs for image classification</li>
+        <li class="tech-item">Transfer Learning with MobileNet</li>
+        <li class="tech-item">Data augmentation techniques</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-btn">Return to Portfolio</a>
+    </div>
+  </div>
+</body>
+</html> 

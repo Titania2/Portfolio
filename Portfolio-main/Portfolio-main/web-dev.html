@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Web Development Skills - Adil Chishty</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes codeGlow {
+      0% { box-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d; }
+      50% { box-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d; }
+      100% { box-shadow: 0 0 5px #00ff9d, 0 0 10px #00ff9d, 0 0 15px #00ff9d; }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .web-dev-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      color: var(--main-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--main-color);
+      animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+    }
+
+    .project-section {
+      background: var(--snd-bg-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .project-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px var(--main-color);
+    }
+
+    .project-title {
+      color: var(--main-color);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-item {
+      color: var(--text-color);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.5rem;
+      border-left: 3px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateX(10px);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 1.5rem 3rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      margin-top: 3rem;
+      font-size: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      animation: codeGlow 2s infinite;
+    }
+
+    .back-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .back-btn:hover::before {
+      left: 100%;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px var(--main-color);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px var(--main-color);
+    }
+
+    .skill-card h3 {
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--text-color);
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="web-dev-container">
+    <h1 class="section-title">🌐 Web Development Skills</h1>
+
+    <div class="project-section">
+      <h2 class="project-title">🏁 🕹️ Full-Fledged Racing Game</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        A browser-based arcade-style racing game—created entirely from scratch without any game engine. It runs seamlessly on all devices and showcases real-time interactions, smooth physics, and a responsive layout.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Key Features:</h3>
+      <ul class="feature-list">
+        <li class="feature-item">Game loop with requestAnimationFrame() for smooth performance</li>
+        <li class="feature-item">Car movement logic with steering, velocity, and acceleration</li>
+        <li class="feature-item">Lap timer and local score tracking</li>
+        <li class="feature-item">Pixel-style sprites with retro racing theme</li>
+        <li class="feature-item">Sound effects and keyboard controls (Arrow keys + WASD)</li>
+        <li class="feature-item">Responsive canvas design for both desktop and mobile</li>
+        <li class="feature-item">Purely built with vanilla JS, HTML5, and CSS3</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🏋️ 💪 Responsive Gym Website</h2>
+      <p style="color: var(--text-color); font-size: 1.6rem; margin-bottom: 2rem;">
+        A clean, professional, and fully responsive website built for a fictional gym brand. It combines sleek UI with modern design techniques, aimed at enhancing user engagement and boosting brand identity.
+      </p>
+      <h3 style="color: var(--main-color); font-size: 2rem; margin-bottom: 1rem;">Key Features:</h3>
+      <ul class="feature-list">
+        <li class="feature-item">Hero section with CTA buttons and a bold gym brand layout</li>
+        <li class="feature-item">Program showcase with animated cards and icons</li>
+        <li class="feature-item">Trainers section with profile highlights and hover interactions</li>
+        <li class="feature-item">Contact & session booking form with JS validation</li>
+        <li class="feature-item">Mobile-first design with breakpoints and media queries</li>
+        <li class="feature-item">Smooth navigation, scroll effects, and polished CSS animations</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2 class="project-title">🛠️ Other Web Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend Development</h3>
+          <p>Semantic HTML5 and modular CSS3</p>
+        </div>
+        <div class="skill-card">
+          <h3>JavaScript</h3>
+          <p>DOM manipulation & event handling</p>
+        </div>
+        <div class="skill-card">
+          <h3>Responsive Design</h3>
+          <p>Flexbox, Grid, media queries</p>
+        </div>
+        <div class="skill-card">
+          <h3>Development Tools</h3>
+          <p>Chrome DevTools, Git & GitHub</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-btn">Return to Portfolio</a>
+    </div>
+  </div>
+</body>
+</html> 

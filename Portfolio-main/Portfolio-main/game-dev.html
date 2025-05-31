@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Game Development Skills - Adil Chishty</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes glitch {
+      0% {
+        text-shadow: 0.05em 0 0 #00ff9d, -0.05em -0.025em 0 #ff00ff;
+      }
+      14% {
+        text-shadow: 0.05em 0 0 #00ff9d, -0.05em -0.025em 0 #ff00ff;
+      }
+      15% {
+        text-shadow: -0.05em -0.025em 0 #00ff9d, 0.025em 0.025em 0 #ff00ff;
+      }
+      49% {
+        text-shadow: -0.05em -0.025em 0 #00ff9d, 0.025em 0.025em 0 #ff00ff;
+      }
+      50% {
+        text-shadow: 0.025em 0.05em 0 #00ff9d, 0.05em 0 0 #ff00ff;
+      }
+      99% {
+        text-shadow: 0.025em 0.05em 0 #00ff9d, 0.05em 0 0 #ff00ff;
+      }
+      100% {
+        text-shadow: -0.025em 0 0 #00ff9d, -0.025em -0.025em 0 #ff00ff;
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .game-dev-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      color: var(--main-color);
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: glitch 2s infinite;
+    }
+
+    .skill-section {
+      background: var(--snd-bg-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px var(--main-color);
+    }
+
+    .skill-title {
+      color: var(--main-color);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-item {
+      color: var(--text-color);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.5rem;
+      border-left: 3px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateX(10px);
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 1.5rem 3rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      margin-top: 3rem;
+      font-size: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .back-btn:hover::before {
+      left: 100%;
+    }
+
+    .back-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--main-color);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid var(--main-color);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px var(--main-color);
+    }
+
+    .project-card h3 {
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card p {
+      color: var(--text-color);
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-dev-container">
+    <h1 class="section-title">🕹️ Game Development Skills</h1>
+
+    <div class="skill-section">
+      <h2 class="skill-title">🔧 Unity (2D/3D Game Development)</h2>
+      <ul class="skill-list">
+        <li class="skill-item">Character Movement: Developed smooth 2D and 3D character movement systems</li>
+        <li class="skill-item">Level Design: Built engaging game environments using Unity's terrain tools</li>
+        <li class="skill-item">AI Programming: Integrated AI enemies using NavMesh Agents and behavior trees</li>
+        <li class="skill-item">UI/UX Systems: Created functional menus, health bars, and inventory systems</li>
+        <li class="skill-item">Scripting in C#: Expert in object-oriented programming and MonoBehaviour lifecycle</li>
+        <li class="skill-item">Animation Handling: Used Animator Controllers for smooth transitions</li>
+        <li class="skill-item">Game State Management: Implemented save/load systems and checkpoints</li>
+        <li class="skill-item">Multiplatform Development: Built games for PC, Android, and WebGL</li>
+      </ul>
+    </div>
+
+    <div class="skill-section">
+      <h2 class="skill-title">🎮 Unreal Engine 5 (UE5)</h2>
+      <ul class="skill-list">
+        <li class="skill-item">Blueprint Visual Scripting: Developed player controllers and enemy logic</li>
+        <li class="skill-item">Nanite & Lumen: Worked with UE5's advanced rendering features</li>
+        <li class="skill-item">Level Design: Created interactive levels with environmental storytelling</li>
+        <li class="skill-item">Animation & Montage: Integrated character animations</li>
+        <li class="skill-item">Material Editor: Designed shaders and materials</li>
+        <li class="skill-item">Cinematic Sequences: Used Sequencer for cutscenes</li>
+      </ul>
+    </div>
+
+    <div class="skill-section">
+      <h2 class="skill-title">🧱 Blender (3D Modeling & Asset Creation)</h2>
+      <ul class="skill-list">
+        <li class="skill-item">Modeling: Created low-poly assets for game development</li>
+        <li class="skill-item">UV Unwrapping & Texturing: Basic understanding of UV mapping</li>
+        <li class="skill-item">Exporting Assets: Exported models in FBX/OBJ formats</li>
+        <li class="skill-item">Rigging & Animation: Created simple rigs and animations</li>
+      </ul>
+    </div>
+
+    <div class="skill-section">
+      <h2 class="skill-title">📂 Game Projects & Scenes</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Horror Game</h3>
+          <p>Immersive horror experience with dynamic lighting and sound design</p>
+        </div>
+        <div class="project-card">
+          <h3>Action-Adventure Game</h3>
+          <p>Fast-paced action with RPG elements and character progression</p>
+        </div>
+        <div class="project-card">
+          <h3>Racing Game</h3>
+          <p>High-speed racing with realistic physics and vehicle customization</p>
+        </div>
+        <div class="project-card">
+          <h3>3D Animation Scenes</h3>
+          <p>Swimming Pool, Ocean, Red Bull, and Car Animation projects</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-section">
+      <h2 class="skill-title">🧠 Additional Skills</h2>
+      <ul class="skill-list">
+        <li class="skill-item">Version Control (Git)</li>
+        <li class="skill-item">Audio Design and Integration</li>
+        <li class="skill-item">Game Optimization Techniques</li>
+        <li class="skill-item">Documentation & Planning</li>
+        <li class="skill-item">Cross-Platform Testing</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="back-btn">Return to Portfolio</a>
+    </div>
+  </div>
+</body>
+</html> 
